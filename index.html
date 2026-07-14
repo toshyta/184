@@ -13,23 +13,23 @@
 }
 
 body{
-    background:#0d1117;
+    background:linear-gradient(135deg,#0a0f1f,#111827,#1e293b);
+    font-family:Arial,Helvetica,sans-serif;
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
     overflow:hidden;
-    font-family:Arial,Helvetica,sans-serif;
 }
 
 #logo{
     position:absolute;
+    color:#fff;
     font-size:90px;
-    color:white;
     font-weight:bold;
-    letter-spacing:8px;
-    text-shadow:0 0 20px #00bfff;
-    animation:fadeIn 2s forwards;
+    letter-spacing:10px;
+    text-shadow:0 0 15px #00c8ff,0 0 35px #00c8ff;
+    animation:showLogo 2s ease forwards;
 }
 
 #welcome{
@@ -40,27 +40,20 @@ body{
 
 #welcome h1{
     color:white;
-    font-size:55px;
+    font-size:52px;
+    margin-bottom:20px;
 }
 
 #welcome p{
-    margin-top:15px;
-    color:#9ecfff;
-    font-size:22px;
+    color:#8fd3ff;
+    font-size:24px;
+    letter-spacing:2px;
 }
 
-.fadeOut{
-    animation:fadeOut 1.5s forwards;
-}
-
-.fadeIn{
-    animation:welcomeIn 2s forwards;
-}
-
-@keyframes fadeIn{
+@keyframes showLogo{
     from{
         opacity:0;
-        transform:scale(.5);
+        transform:scale(.6);
     }
     to{
         opacity:1;
@@ -68,7 +61,7 @@ body{
     }
 }
 
-@keyframes fadeOut{
+@keyframes hideLogo{
     from{
         opacity:1;
         transform:scale(1);
@@ -79,7 +72,7 @@ body{
     }
 }
 
-@keyframes welcomeIn{
+@keyframes showWelcome{
     from{
         opacity:0;
         transform:translateY(40px);
@@ -90,28 +83,26 @@ body{
     }
 }
 </style>
-
 </head>
+
 <body>
 
-<div id="logo">
-    TOOSHYTA
-</div>
+<div id="logo">TOOSHYTA</div>
 
 <div id="welcome">
     <h1>Welcome to the TOOSHYTA Developer Website</h1>
-    <p>Building the Future with Creativity</p>
+    <p>Developed by TOOSHYTA</p>
 </div>
 
 <script>
 setTimeout(function(){
+    document.getElementById("logo").style.animation="hideLogo 1.5s forwards";
 
-document.getElementById("logo").classList.add("fadeOut");
-
-setTimeout(function(){
-document.getElementById("logo").style.display="none";
-document.getElementById("welcome").classList.add("fadeIn");
-},1500);
+    setTimeout(function(){
+        document.getElementById("logo").style.display="none";
+        document.getElementById("welcome").style.animation="showWelcome 2s forwards";
+        document.getElementById("welcome").style.opacity="1";
+    },1500);
 
 },6000);
 </script>
