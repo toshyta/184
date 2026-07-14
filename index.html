@@ -103,7 +103,15 @@ body{
         It marks the beginning of TOOSHYTA's journey in web development.
     </p>
 </div>
+<div id="thanks" style="display:none; text-align:center;">
+    <h1 style="color:white; font-size:60px;">
+        Thank You for Watching
+    </h1>
 
+    <p style="color:#8fd3ff; font-size:24px; margin-top:20px;">
+        See you again at TOOSHYTA Developer
+    </p>
+</div>
 <script>
 
 setTimeout(function(){
@@ -120,7 +128,20 @@ setTimeout(function(){
     },1500);
 
 },6000);
+setTimeout(function(){
 
+    document.getElementById("intro").style.animation="hideLogo 1.5s forwards";
+
+    setTimeout(function(){
+
+        document.getElementById("intro").style.display="none";
+
+        document.getElementById("thanks").style.display="block";
+        document.getElementById("thanks").style.animation="showWelcome 2s forwards";
+
+    },1500);
+
+},18000);
 
 setTimeout(function(){
 
